@@ -1,6 +1,6 @@
 Name:		texlive-href-ul
 Version:	64880
-Release:	1
+Release:	2
 Summary:	Underscored LaTeX hyperlinks
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/href-ul
