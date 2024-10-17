@@ -3,7 +3,7 @@ Version:	69359
 Release:	1
 Summary:	Underscored LaTeX hyperlinks
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/href-ul
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/href-ul
 License:	mit
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.doc.r%{version}.tar.xz
