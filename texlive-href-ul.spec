@@ -1,39 +1,24 @@
-Name:		texlive-href-ul
-Version:	72741
-Release:	1
+%global tl_name href-ul
+%global tl_revision 79622
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.5.3
+Release:	%{tl_revision}.1
 Summary:	Underscored LaTeX hyperlinks
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/href-ul
 License:	mit
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/href-ul.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
-BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+BuildSystem:	texlive
+Requires:	texlive(hyperref)
+Requires:	texlive(ulem)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This LaTeX package makes hyperlinks underscored, just like on
-the web. The package uses hyperref and ulem.
+This LaTeX package makes hyperlinks underscored, just like on the web.
+The package uses hyperref and ulem.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/href-ul
-%{_texmfdistdir}/tex/latex/href-ul
-%doc %{_texmfdistdir}/doc/latex/href-ul
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
